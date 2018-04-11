@@ -12,7 +12,7 @@ import {
   UNMATCHED, DESCENDANT_MATCHED, MATCHED,
   NO_PARENT_NODE,
   ALL, BRANCH_PRIORITY, LEAF_PRIORITY,
-  ALL_CHILDREN, ALL_DESCENDANTS, LEAF_CHILDREN, LEAF_DESCENDANTS,
+  ALL_CHILDREN, ALL_DESCENDANTS, SELECTED_CHILDREN, LEAF_CHILDREN, LEAF_DESCENDANTS,
   ORDER_SELECTED, LEVEL, INDEX,
   INPUT_DEBOUNCE_DELAY,
 } from '../constants'
@@ -170,6 +170,14 @@ export default {
      * Disable the fuzzy matching functionality?
      */
     disableFuzzyMatching: {
+      type: Boolean,
+      default: false,
+    },
+    enableCountrySearching: {
+      type: Boolean,
+      default: false,
+    },
+    hideSelected: {
       type: Boolean,
       default: false,
     },
@@ -400,7 +408,7 @@ export default {
       type: String,
       default: ALL_CHILDREN,
       validator(value) {
-        const acceptableValues = [ ALL_CHILDREN, ALL_DESCENDANTS, LEAF_CHILDREN, LEAF_DESCENDANTS ]
+        const acceptableValues = [ ALL_CHILDREN, SELECTED_CHILDREN, ALL_DESCENDANTS, LEAF_CHILDREN, LEAF_DESCENDANTS ]
         return acceptableValues.indexOf(value) !== -1
       },
     },
@@ -622,7 +630,6 @@ export default {
     value() {
       const newInternalValue = this.extractCheckedNodeIdsFromValue()
       const hasChanged = quickDiff(newInternalValue, this.internalValue)
-
       if (hasChanged) {
         this.selectedNodeIds = newInternalValue
         this.completeSelectedNodeIdList()
@@ -703,6 +710,7 @@ export default {
         isLeaf: true,
         isBranch: false,
         isDisabled: false,
+        isHidden: false,
         index: [ -1 ],
         level: 0,
         raw,
@@ -892,6 +900,7 @@ export default {
             node.hasMatchedChild = false
             this.$set(this.searchingCount, node.id, {
               [ALL_CHILDREN]: 0,
+              [SELECTED_CHILDREN]: 0,
               [ALL_DESCENDANTS]: 0,
               [LEAF_CHILDREN]: 0,
               [LEAF_DESCENDANTS]: 0,
@@ -900,26 +909,64 @@ export default {
         })
         const lowerCasedSearchQuery = this.searchQuery.toLowerCase()
         this.traverseAllNodes(node => {
-          const isMatched = node.isMatched = this.disableFuzzyMatching
-            ? node.lowerCasedLabel.indexOf(lowerCasedSearchQuery) !== -1
-            : fuzzysearch(lowerCasedSearchQuery, node.lowerCasedLabel)
-
-          if (isMatched) {
-            this.noSearchResults = false
-            node.ancestors.forEach(ancestor => this.searchingCount[ancestor.id].ALL_DESCENDANTS++)
-            if (node.isLeaf) node.ancestors.forEach(ancestor => this.searchingCount[ancestor.id].LEAF_DESCENDANTS++)
-            if (node.parentNode !== NO_PARENT_NODE) {
-              this.searchingCount[node.parentNode.id].ALL_CHILDREN += 1
-              if (node.isLeaf) this.searchingCount[node.parentNode.id].LEAF_CHILDREN += 1
+          let isMatchedCountry
+          isMatchedCountry = false
+          if (this.enableCountrySearching) {
+            if (node.alpha2Code && lowerCasedSearchQuery.length === 2) {
+              if (node.alpha2Code.toLowerCase() === lowerCasedSearchQuery)
+                isMatchedCountry = true
             }
-          }
-
-          if (
-            (isMatched || (node.isBranch && node.expandsOnSearch)) &&
-            node.parentNode !== NO_PARENT_NODE
-          ) {
-            node.parentNode.expandsOnSearch = true
-            node.parentNode.hasMatchedChild = true
+            if (node.alpha3Code && lowerCasedSearchQuery.length === 3) {
+              if (node.alpha3Code.toLowerCase() === lowerCasedSearchQuery)
+                isMatchedCountry = true
+            }
+            if (lowerCasedSearchQuery.length > 3) {
+              if (node.lowerCasedLabel.toLowerCase().indexOf(lowerCasedSearchQuery) >= 0)
+                isMatchedCountry = true
+            }
+            if (!isMatchedCountry) {
+              isMatchedCountry = node.isMatched = this.disableFuzzyMatching
+                ? node.lowerCasedLabel.indexOf(lowerCasedSearchQuery) !== -1
+                : fuzzysearch(lowerCasedSearchQuery, node.lowerCasedLabel)
+            }
+            node.isMatched = isMatchedCountry
+            if (isMatchedCountry) {
+              console.warn(node)
+              this.noSearchResults = false
+              node.ancestors.forEach(ancestor => this.searchingCount[ancestor.id].ALL_DESCENDANTS++)
+              if (node.isLeaf) node.ancestors.forEach(ancestor => this.searchingCount[ancestor.id].LEAF_DESCENDANTS++)
+              if (node.parentNode !== NO_PARENT_NODE) {
+                this.searchingCount[node.parentNode.id].ALL_CHILDREN += 1
+                if (node.isLeaf) this.searchingCount[node.parentNode.id].LEAF_CHILDREN += 1
+              }
+            }
+            if (
+              (isMatchedCountry || (node.isBranch && node.expandsOnSearch)) &&
+              node.parentNode !== NO_PARENT_NODE
+            ) {
+              node.parentNode.expandsOnSearch = true
+              node.parentNode.hasMatchedChild = true
+            }
+          } else {
+            const isMatched = node.isMatched = this.disableFuzzyMatching
+              ? node.lowerCasedLabel.indexOf(lowerCasedSearchQuery) !== -1
+              : fuzzysearch(lowerCasedSearchQuery, node.lowerCasedLabel)
+            if (isMatched) {
+              this.noSearchResults = false
+              node.ancestors.forEach(ancestor => this.searchingCount[ancestor.id].ALL_DESCENDANTS++)
+              if (node.isLeaf) node.ancestors.forEach(ancestor => this.searchingCount[ancestor.id].LEAF_DESCENDANTS++)
+              if (node.parentNode !== NO_PARENT_NODE) {
+                this.searchingCount[node.parentNode.id].ALL_CHILDREN += 1
+                if (node.isLeaf) this.searchingCount[node.parentNode.id].LEAF_CHILDREN += 1
+              }
+            }
+            if (
+              (isMatched || (node.isBranch && node.expandsOnSearch)) &&
+              node.parentNode !== NO_PARENT_NODE
+            ) {
+              node.parentNode.expandsOnSearch = true
+              node.parentNode.hasMatchedChild = true
+            }
           }
         })
       } else {
@@ -1014,6 +1061,7 @@ export default {
           const { id, label, children, isDefaultExpanded } = node
           const lowerCasedLabel = label.toLowerCase() // used for option filtering
           const isDisabled = !!node.isDisabled || (!this.flat && !isRootNode && parentNode.isDisabled)
+          const isHidden = !!node.isHidden || (!this.flat && !isRootNode && parentNode.isHidden)
           const isBranch = (
             Array.isArray(children) ||
             children === null ||
@@ -1033,6 +1081,7 @@ export default {
             parentNode,
             lowerCasedLabel,
             isDisabled,
+            isHidden,
             isMatched,
             isLeaf,
             isBranch,
@@ -1060,6 +1109,7 @@ export default {
             normalized.loadingChildrenError = ''
             normalized.count = {
               [ALL_CHILDREN]: 0,
+              [SELECTED_CHILDREN]: 0,
               [ALL_DESCENDANTS]: 0,
               [LEAF_CHILDREN]: 0,
               [LEAF_DESCENDANTS]: 0,
@@ -1075,6 +1125,10 @@ export default {
 
           normalized.ancestors.forEach(ancestor => ancestor.count.ALL_DESCENDANTS++)
           if (isLeaf) normalized.ancestors.forEach(ancestor => ancestor.count.LEAF_DESCENDANTS++)
+          if (isHidden) normalized.ancestors.forEach(ancestor => {
+            ancestor.count.SELECTED_CHILDREN++
+            ancestor.count.ALL_CHILDREN--
+          })
           if (parentNode !== NO_PARENT_NODE) {
             parentNode.count.ALL_CHILDREN += 1
             if (isLeaf) parentNode.count.LEAF_CHILDREN += 1
@@ -1159,6 +1213,11 @@ export default {
     },
 
     select(node) {
+      console.warn('select')
+      if (this.hideSelected)
+        node.parentNode.count.SELECTED_CHILDREN++
+      console.warn(node)
+
       if (node.isDisabled) return
 
       if (this.single) {
@@ -1198,6 +1257,7 @@ export default {
           : []
         this.buildSelectedNodeMap()
         this.buildNodeCheckedStateMap()
+        console.warn('clear event')
       }
     },
 
@@ -1232,6 +1292,17 @@ export default {
     },
 
     _deselectNode(node) {
+      console.warn('deselect')
+      if (this.hideSelected) {
+        console.warn('deselect hidden')
+        node.parentNode.count.SELECTED_CHILDREN--
+        node.ancestors.forEach(ancestor => {
+          ancestor.count.SELECTED_CHILDREN--
+        }
+        )
+        node.isHidden = false
+      }
+      console.warn(node)
       if (this.single || this.flat || this.disableBranchNodes) {
         this.removeValue(node)
         return
@@ -1260,6 +1331,8 @@ export default {
     },
 
     addValue(node) {
+      if (this.hideSelected)
+        node.isHidden = true
       this.selectedNodeIds.push(node.id)
       this.selectedNodeMap[node.id] = true
     },

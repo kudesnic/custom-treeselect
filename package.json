@@ -1,11 +1,14 @@
 {
-  "name": "@riophae/vue-treeselect",
+  "name": "vue-treeselect-custom",
   "version": "0.0.15",
   "description": "A multi-select component with nested options for Vue.js",
   "author": "Riophae Lee <riophaelee@gmail.com>",
   "license": "MIT",
   "homepage": "https://vue-treeselect.js.org/",
-  "repository": "riophae/vue-treeselect",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riophae/vue-treeselect.git"
+  },
   "main": "dist/vue-treeselect.min.js",
   "unpkg": "dist/vue-treeselect.min.js",
   "css": "dist/vue-treeselect.min.css",
@@ -137,7 +140,20 @@
     "IE >= 9"
   ],
   "size-limit": [
-    { "path": "dist/vue-treeselect.min.js", "limit": "9 KB" },
-    { "path": "dist/vue-treeselect.min.css", "limit": "5 KB" }
-  ]
+    {
+      "path": "dist/vue-treeselect.min.js",
+      "limit": "9 KB"
+    },
+    {
+      "path": "dist/vue-treeselect.min.css",
+      "limit": "5 KB"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/riophae/vue-treeselect/issues"
+  },
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  }
 }

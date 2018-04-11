@@ -1,5 +1,5 @@
 <template>
-  <div class="vue-treeselect__list-item">
+  <div v-if="!node.isHidden" class="vue-treeselect__list-item">
     <div :class="[ 'vue-treeselect__option', {
       'vue-treeselect__option--disabled': node.isDisabled,
       'vue-treeselect__option--root': node.isRootNode,
@@ -27,6 +27,8 @@
             <span class="vue-treeselect__checkbox-mark" />
           </span>
         </div>
+        {{ count }}
+
         <slot name="option-label" :node="node" :should-show-count="shouldShowCount" :count="count"
           label-class-name="vue-treeselect__label" count-class-name="vue-treeselect__count" />
       </div>

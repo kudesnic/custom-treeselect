@@ -31,7 +31,7 @@ export default {
       if (!this.shouldShowCount) return NaN
       return this.instance.searching
         ? this.instance.searchingCount[this.node.id][this.instance.showCountOf]
-        : this.node.count[this.instance.showCountOf]
+        : this.node.count[this.instance.showCountOf] - this.node.count.SELECTED_CHILDREN
     },
   },
 

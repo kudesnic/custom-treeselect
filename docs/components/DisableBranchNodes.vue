@@ -3,7 +3,10 @@
     :options="options"
     :disable-branch-nodes="true"
     :show-count="true"
+    :multiple="true"
     placeholder="Where are you from?"
+    :enable-country-searching="true"
+    :hide-selected="true"
     />
 </template>
 
