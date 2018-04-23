@@ -27,8 +27,6 @@
             <span class="vue-treeselect__checkbox-mark" />
           </span>
         </div>
-        {{ count }}
-
         <slot name="option-label" :node="node" :should-show-count="shouldShowCount" :count="count"
           label-class-name="vue-treeselect__label" count-class-name="vue-treeselect__count" />
       </div>
