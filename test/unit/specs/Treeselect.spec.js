@@ -86,6 +86,7 @@ describe('Basic', () => {
         isExpanded: jasmine.any(Boolean),
         isMatched: jasmine.any(Boolean),
         isDisabled: jasmine.any(Boolean),
+        isHidden: jasmine.any(Boolean),
         isLoaded: jasmine.any(Boolean),
         isPending: jasmine.any(Boolean),
         hasMatchedChild: jasmine.any(Boolean),
@@ -102,6 +103,7 @@ describe('Basic', () => {
           ALL_DESCENDANTS: jasmine.any(Number),
           LEAF_CHILDREN: jasmine.any(Number),
           LEAF_DESCENDANTS: jasmine.any(Number),
+          SELECTED_CHILDREN: jasmine.any(Number),
         },
         raw: jasmine.any(Object),
       })
@@ -115,6 +117,7 @@ describe('Basic', () => {
         isRootNode: jasmine.any(Boolean),
         isMatched: jasmine.any(Boolean),
         isDisabled: jasmine.any(Boolean),
+        isHidden: jasmine.any(Boolean),
         parentNode: jasmine.any(Object),
         ancestors: jasmine.any(Array),
         index: jasmine.any(Array),
@@ -495,6 +498,7 @@ describe('Basic', () => {
         ALL_DESCENDANTS: 4,
         LEAF_CHILDREN: 1,
         LEAF_DESCENDANTS: 3,
+        SELECTED_CHILDREN: 0,
       })
 
       expect(b).not.toHaveMember('count')
@@ -504,6 +508,7 @@ describe('Basic', () => {
         ALL_DESCENDANTS: 2,
         LEAF_CHILDREN: 2,
         LEAF_DESCENDANTS: 2,
+        SELECTED_CHILDREN: 0,
       })
 
       expect(ab).not.toHaveMember('count')
@@ -578,6 +583,7 @@ describe('Basic', () => {
         isLeaf: true,
         isBranch: false,
         isDisabled: false,
+        isHidden: false,
         index: [ -1 ],
         level: 0,
         raw: {

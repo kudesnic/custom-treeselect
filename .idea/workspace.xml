@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94a02566-5d66-42d1-b11f-bded388aaa4b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/unit/specs/Treeselect.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/unit/specs/Treeselect.spec.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,13 +17,24 @@
       <file leaf-file-name="treeselectMixin.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mixins/treeselectMixin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="915" column="33" selection-start-line="915" selection-start-column="23" selection-end-line="915" selection-end-column="33" />
+            <state relative-caret-position="314">
+              <caret line="712" column="8" selection-start-line="712" selection-start-column="8" selection-end-line="712" selection-end-column="8" />
               <folding>
                 <element signature="e#15281#15686#0" />
                 <element signature="e#15706#15788#0" />
                 <element signature="e#15819#16058#0" />
-                <element signature="e#16664#17387#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Treeselect.spec.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/unit/specs/Treeselect.spec.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="510" column="29" lean-forward="true" selection-start-line="510" selection-start-column="29" selection-end-line="510" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -41,18 +52,18 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+            <state relative-caret-position="52">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="102">
-                <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+                <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
               </first_editor>
               <second_editor />
             </state>
@@ -64,15 +75,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="561">
               <caret line="33" column="88" selection-start-line="33" selection-start-column="88" selection-end-line="33" selection-end-column="88" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="constants.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/constants.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -95,20 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/style.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16796">
-              <caret line="988" column="1" selection-start-line="988" selection-start-column="1" selection-end-line="988" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DisableBranchNodes.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/components/DisableBranchNodes.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="25" />
+              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -117,14 +110,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>chalk</find>
-      <find>linebreak-style</find>
       <find>this.disableFuzzyMatching</find>
       <find>Where</find>
       <find>disableFuzzyMatching</find>
       <find>parentNode</find>
       <find>isDisabl</find>
-      <find>isDisabled</find>
       <find>enableCountrySearching</find>
       <find>selecte</find>
       <find>select</find>
@@ -146,15 +136,18 @@
       <find>dist</find>
       <find>scri</find>
       <find>for</find>
+      <find>error</find>
+      <find>isHidden: false</find>
       <find>alp</find>
+      <find>isDisabled</find>
     </findStrings>
     <dirStrings>
       <dir>D:\opens\OSPanel\domains\treeselect-custom</dir>
-      <dir>D:\opens\OSPanel\domains\treeselect-custom.com\src</dir>
       <dir>D:\opens\OSPanel\domains\treeselect-custom.com\docs\components</dir>
       <dir>D:\opens\OSPanel\domains\treeselect-custom.com\src\mixins</dir>
       <dir>D:\opens\OSPanel\domains\treeselect-custom.com</dir>
       <dir>D:\opens\OSPanel\domains\treeselect-custom.com\build</dir>
+      <dir>D:\opens\OSPanel\domains\treeselect-custom.com\src</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -178,8 +171,9 @@
         <option value="$PROJECT_DIR$/src/mixins/optionMixin.js" />
         <option value="$PROJECT_DIR$/src/mixins/treeselectMixin.js" />
         <option value="$PROJECT_DIR$/src/components/Option.vue" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/test/unit/specs/Treeselect.spec.js" />
       </list>
     </option>
   </component>
@@ -218,6 +212,40 @@
               <item name="treeselect-custom.com" type="b2602c69:ProjectViewProjectNode" />
               <item name="treeselect-custom.com" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="treeselect-custom.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="treeselect-custom.com" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="build" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="treeselect-custom.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="treeselect-custom.com" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="treeselect-custom.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="treeselect-custom.com" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="mixins" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="treeselect-custom.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="treeselect-custom.com" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="test" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="treeselect-custom.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="treeselect-custom.com" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="test" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="unit" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="treeselect-custom.com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="treeselect-custom.com" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="test" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="unit" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="specs" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -235,6 +263,7 @@
     <property name="node.js.selected.package.eslint" value="D:\opens\OSPanel\domains\treeselect-custom.com\node_modules\eslint" />
     <property name="node.js.selected.package.stylelint" value="D:\opens\OSPanel\domains\treeselect-custom.com\node_modules\stylelint" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -262,7 +291,7 @@
       <workItem from="1523021638594" duration="1402000" />
       <workItem from="1523344398131" duration="22869000" />
       <workItem from="1523431025307" duration="9708000" />
-      <workItem from="1524469221683" duration="3704000" />
+      <workItem from="1524469221683" duration="6815000" />
     </task>
     <task id="LOCAL-00001" summary="&#10;saassasa">
       <created>1523442667569</created>
@@ -275,7 +304,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39615000" />
+    <option name="totallyTimeSpent" value="42726000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
@@ -287,10 +316,11 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32893497" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32893497" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32925683" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -300,7 +330,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32925683" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,7 +356,6 @@
             <element signature="e#15281#15686#0" />
             <element signature="e#15706#15788#0" />
             <element signature="e#15819#16058#0" />
-            <element signature="e#16664#17387#0" />
           </folding>
         </state>
       </provider>
@@ -395,7 +423,6 @@
             <element signature="e#15281#15686#0" />
             <element signature="e#15706#15788#0" />
             <element signature="e#15819#16058#0" />
-            <element signature="e#16664#17387#0" />
           </folding>
         </state>
       </provider>
@@ -471,7 +498,6 @@
             <element signature="e#15281#15686#0" />
             <element signature="e#15706#15788#0" />
             <element signature="e#15819#16058#0" />
-            <element signature="e#16664#17387#0" />
           </folding>
         </state>
       </provider>
@@ -537,16 +563,6 @@
         <state relative-caret-position="-1511" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/build.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-144" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/webpack.base.conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-433" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/webpack.bundle.conf.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-501" />
@@ -583,19 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mixins/treeselectMixin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="915" column="33" selection-start-line="915" selection-start-column="23" selection-end-line="915" selection-end-column="33" />
-          <folding>
-            <element signature="e#15281#15686#0" />
-            <element signature="e#15706#15788#0" />
-            <element signature="e#15819#16058#0" />
-            <element signature="e#16664#17387#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Treeselect.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="477">
@@ -606,7 +609,7 @@
     <entry file="file://$PROJECT_DIR$/docs/components/DisableBranchNodes.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="25" />
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -617,20 +620,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/build/build.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        <state relative-caret-position="-118" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/dev-server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="58" column="20" selection-start-line="58" selection-start-column="15" selection-end-line="58" selection-end-column="20" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/webpack.base.conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-815" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="102">
-            <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+            <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mixins/treeselectMixin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="712" column="8" selection-start-line="712" selection-start-column="8" selection-end-line="712" selection-end-column="8" />
+          <folding>
+            <element signature="e#15281#15686#0" />
+            <element signature="e#15706#15788#0" />
+            <element signature="e#15819#16058#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/specs/Treeselect.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="510" column="29" lean-forward="true" selection-start-line="510" selection-start-column="29" selection-end-line="510" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
