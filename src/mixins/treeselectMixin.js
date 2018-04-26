@@ -1213,7 +1213,7 @@ export default {
 
     select(node) {
       console.warn('select')
-      if (this.hideSelected && node.parentNode.count)
+      if (node.parentNode && (this.hideSelected && node.parentNode.count))
         node.parentNode.count.SELECTED_CHILDREN++
       console.warn(node)
 
@@ -1292,7 +1292,7 @@ export default {
 
     _deselectNode(node) {
       console.warn('deselect')
-      if (this.hideSelected) {
+      if (node.parentNode && (this.hideSelected && node.parentNode.count)) {
         console.warn('deselect hidden')
         node.parentNode.count.SELECTED_CHILDREN--
         node.ancestors.forEach(ancestor => {
