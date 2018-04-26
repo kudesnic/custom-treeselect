@@ -1213,12 +1213,11 @@ export default {
 
     select(node) {
       console.warn('select')
-      if (node.parentNode && (this.hideSelected && node.parentNode.count))
-        node.parentNode.count.SELECTED_CHILDREN++
-      console.warn(node)
-
-      if (node.isDisabled) return
-
+      if (node.parentNode) {
+        if (node.parentNode && (this.hideSelected && node.parentNode.count))
+          node.parentNode.count.SELECTED_CHILDREN++
+        if (node.isDisabled) return
+      }
       if (this.single) {
         this.clear()
       }
@@ -1292,15 +1291,16 @@ export default {
 
     _deselectNode(node) {
       console.warn('deselect')
-      if (node.parentNode && (this.hideSelected && node.parentNode.count)) {
-        console.warn('deselect hidden')
-        node.parentNode.count.SELECTED_CHILDREN--
-        node.ancestors.forEach(ancestor => {
-          ancestor.count.SELECTED_CHILDREN--
+      if (node.parentNode)
+        if (node.parentNode && (this.hideSelected && node.parentNode.count)) {
+          console.warn('deselect hidden')
+          node.parentNode.count.SELECTED_CHILDREN--
+          node.ancestors.forEach(ancestor => {
+            ancestor.count.SELECTED_CHILDREN--
+          }
+          )
+          node.isHidden = false
         }
-        )
-        node.isHidden = false
-      }
       console.warn(node)
       if (this.single || this.flat || this.disableBranchNodes) {
         this.removeValue(node)
