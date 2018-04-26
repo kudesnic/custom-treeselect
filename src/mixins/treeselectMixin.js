@@ -931,7 +931,6 @@ export default {
             }
             node.isMatched = isMatchedCountry
             if (isMatchedCountry) {
-              console.warn(node)
               this.noSearchResults = false
               node.ancestors.forEach(ancestor => this.searchingCount[ancestor.id].ALL_DESCENDANTS++)
               if (node.isLeaf) node.ancestors.forEach(ancestor => this.searchingCount[ancestor.id].LEAF_DESCENDANTS++)
@@ -1214,7 +1213,7 @@ export default {
 
     select(node) {
       console.warn('select')
-      if (this.hideSelected)
+      if (this.hideSelected && node.parentNode.count)
         node.parentNode.count.SELECTED_CHILDREN++
       console.warn(node)
 
