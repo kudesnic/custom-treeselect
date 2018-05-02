@@ -1,6 +1,6 @@
 {
   "name": "vue-treeselect-custom",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "A multi-select component with nested options for Vue.js",
   "license": "MIT",
   "repository": {

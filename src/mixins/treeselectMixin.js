@@ -1255,6 +1255,19 @@ export default {
           : []
         this.buildSelectedNodeMap()
         this.buildNodeCheckedStateMap()
+        this.traverseAllNodes(node => {
+          if (node.isBranch) {
+            node.expandsOnSearch = false
+            node.hasMatchedChild = false
+            this.$set(this.searchingCount, node.id, {
+              [ALL_CHILDREN]: 0,
+              [SELECTED_CHILDREN]: 0,
+              [ALL_DESCENDANTS]: 0,
+              [LEAF_CHILDREN]: 0,
+              [LEAF_DESCENDANTS]: 0,
+            })
+          }
+        })
         console.warn('clear event')
       }
     },
