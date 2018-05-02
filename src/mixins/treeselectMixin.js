@@ -1213,15 +1213,15 @@ export default {
 
     select(node) {
       console.warn('select')
+      if (this.single) {
+        console.warn('single')
+        this.clear()
+      }
       if (node.parentNode) {
         if (node.parentNode && (this.hideSelected && node.parentNode.count))
           node.parentNode.count.SELECTED_CHILDREN++
         if (node.isDisabled) return
       }
-      if (this.single) {
-        this.clear()
-      }
-
       const toggleFlag = this.multiple && !this.flat
         ? this.nodeCheckedStateMap[node.id] === UNCHECKED
         : !this.isSelected(node)
@@ -1266,6 +1266,12 @@ export default {
               [LEAF_CHILDREN]: 0,
               [LEAF_DESCENDANTS]: 0,
             })
+          } else {
+            node.isHidden = false
+            node.isDisabled = false
+            if (node.parentNode)
+              if (node.parentNode.count[SELECTED_CHILDREN])
+                node.parentNode.count[SELECTED_CHILDREN]--
           }
         })
         console.warn('clear event')
